@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hungria — Site Oficial</title>
+
+<meta name="description" content="Site oficial do Hungria. Ouça no Spotify, assista aos clipes, confira a turnê e fale com o booking.">
+<meta name="theme-color" content="#050505">
+<link rel="canonical" href="https://www.hungriaoficial.com.br/">
+
+<meta property="og:type" content="music.musician">
+<meta property="og:site_name" content="Hungria">
+<meta property="og:title" content="Hungria — Site Oficial">
+<meta property="og:description" content="Ouça no Spotify, assista aos clipes, confira a turnê e fale com o booking.">
+<meta property="og:image" content="assets/img/og-cover.svg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Sistema tipográfico do somacorps.com: Montserrat como família única
+     (300–800; 800 nos títulos com tracking negativo) + Space Mono nas
+     etiquetas técnicas pequenas. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css?v=20260813p">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+<a class="skip" href="#musica">Pular para o conteúdo</a>
+<span id="topo"></span>
+
+
+<!-- ============ INTRO / PRELOADER (só o logo, cortina que sobe) ============ -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__logo"><img src="hungria logo.png" alt="Hungria"></div>
+</div>
+
+
+<!-- ============ HERO PRELOADER (após a intro: montagem de imagens que expande e revela o hero — só no topo) ============ -->
+<div class="hpre" id="hpre" aria-hidden="true">
+  <div class="hpre__frame" id="hpreFrame">
+    <div class="hpre__img" style="background-image:url('assets/img/fotos/gal-3.webp')"></div>
+    <div class="hpre__img" style="background-image:url('assets/img/fotos/gal-7.webp')"></div>
+    <div class="hpre__img" style="background-image:url('assets/img/fotos/hero-start.jpg')"></div>
+  </div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<!-- ============ FUNDO FIXO (uma foto atrás do site; revelada nas seções abertas) ============ -->
+<div class="pagebg" id="pagebg" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="assets/img/fotos/pagebg.webp">
+    <img class="pagebg__img" src="assets/img/fotos/pagebg.jpg" alt="" decoding="async">
+  </picture>
+  <span class="pagebg__veil"></span>
+</div>
+<!-- fundo alternativo: entra da seção Sobre (04) pra baixo (crossfade atrás das seções sólidas) -->
+<div class="pagebg pagebg--alt" id="pagebgAlt" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="assets/img/fotos/fundao.webp?2">
+    <img class="pagebg__img" src="assets/img/fotos/fundao.jpg?2" alt="" decoding="async">
+  </picture>
+  <span class="pagebg__veil"></span>
+</div>
+<script>
+// crossfade do fundão: entra da Sobre pra baixo. Loop rAF lê a posição VISUAL
+// real da seção (funciona com scroll suave/Lenis). Init robusto: roda já se o
+// DOM estiver pronto (evita perder o DOMContentLoaded que já disparou).
+(function(){
+  function init(){
+    var alt = document.getElementById("pagebgAlt"), sobre = document.getElementById("sobre");
+    if (!alt || !sobre) return;
+    var on = false;
+    (function loop(){
+      var should = sobre.getBoundingClientRect().top <= innerHeight * 0.5;
+      if (should !== on) { on = should; alt.classList.toggle("on", on); }
+      requestAnimationFrame(loop);
+    })();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script>
+// brilho especular do glass logo (Sobre) segue o mouse + leve tilt 3D (só desktop)
+(function(){
+  function init(){
+    var g = document.getElementById("glogo"); if(!g) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+    var host = g.closest(".heat") || g;
+    host.addEventListener("pointermove", function(e){
+      var r = g.getBoundingClientRect();
+      var px = Math.max(0, Math.min(1, (e.clientX - r.left)/r.width));
+      var py = Math.max(0, Math.min(1, (e.clientY - r.top)/r.height));
+      g.style.setProperty("--mx",(px*100).toFixed(1)+"%");
+      g.style.setProperty("--my",(py*100).toFixed(1)+"%");
+      g.style.setProperty("--rx",((0.5-py)*10).toFixed(2)+"deg");
+      g.style.setProperty("--ry",((px-0.5)*12).toFixed(2)+"deg");
+    });
+    host.addEventListener("pointerleave", function(){
+      g.style.setProperty("--mx","50%"); g.style.setProperty("--my","26%");
+      g.style.setProperty("--rx","0deg"); g.style.setProperty("--ry","0deg");
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+// Trajetória "polaroid timeline": as fotos inclinam quando longe do centro da
+// tela e se endireitam ao passar pelo meio (contínuo; funciona com Lenis).
+(function(){
+  function init(){
+    var sec = document.getElementById("jornada");
+    var frames = sec ? sec.querySelectorAll(".jrn__frame") : [];
+    if (!frames.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var items = [];
+    for (var i=0;i<frames.length;i++) items.push({ f:frames[i], dir:(i%2===0?1:-1) });
+    (function loop(){
+      var s = sec.getBoundingClientRect(), vh = innerHeight;
+      if (s.bottom > -240 && s.top < vh+240){
+        var cy = vh/2;
+        for (var k=0;k<items.length;k++){
+          var r = items[k].f.getBoundingClientRect();
+          var p = ((r.top + r.height/2) - cy) / (vh*0.62);
+          if (p < -1) p = -1; else if (p > 1) p = 1;
+          items[k].f.style.transform = "rotate(" + (p*7*items[k].dir).toFixed(2) + "deg) translateY(" + (Math.abs(p)*24).toFixed(1) + "px)";
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+// monta a espessura do logo 3D: cópias da logo empilhadas em Z (faces prata,
+// aresta escura). Se falhar, a cópia base do HTML garante o logo visível.
+(function(){
+  function init(){
+    var obj = document.getElementById("logo3dObj"); if(!obj) return;
+    var N = 16, step = 2.0;
+    for (var i=0;i<N;i++){
+      var im = document.createElement("img");
+      im.src = "assets/img/hungria-logomarca.png"; im.alt = ""; im.setAttribute("aria-hidden","true");
+      im.className = "logo3d__layer";
+      var z = (i-(N-1)/2)*step;
+      var edge = Math.abs(i/(N-1)-0.5)*2;           // 0 no centro, 1 nas faces
+      im.style.transform = "translateZ("+z.toFixed(1)+"px)";
+      im.style.filter = "brightness(0) invert("+(0.30 + edge*0.62).toFixed(2)+")";
+      obj.appendChild(im);
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+// MOBILE: scroll-jacking horizontal — ao rolar a página, os slides da Trajetória
+// e da Galeria passam sozinhos pro lado (dirigido pela posição vertical da faixa).
+(function(){
+  function init(){
+    var carousels = [
+      document.querySelector("#jornada .jrn__grid"),
+      document.getElementById("galeria")
+    ].filter(Boolean);
+    if (!carousels.length) return;
+    var mob = matchMedia("(max-width: 760px)");
+    (function loop(){
+      if (mob.matches){
+        var vh = innerHeight;
+        for (var i=0;i<carousels.length;i++){
+          var c = carousels[i];
+          var max = c.scrollWidth - c.clientWidth;
+          if (max > 4){
+            var r = c.getBoundingClientRect();
+            var p = (vh - r.top) / (vh + r.height);
+            if (p < 0) p = 0; else if (p > 1) p = 1;
+            c.scrollLeft = p * max;
+          }
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<!-- ============ ATMOSFERA 3D (fundo profundo, névoa lenta atrás de tudo) ============ -->
+<div class="atmos" id="atmos" aria-hidden="true">
+  <span class="atmos__fog atmos__fog--1"></span>
+  <span class="atmos__fog atmos__fog--2"></span>
+  <span class="atmos__fog atmos__fog--3"></span>
+</div>
+
+<!-- ============ SILK BACKGROUND (WebGL: seda em movimento sobre a foto) ============ -->
+<canvas class="silkbg" id="silkbg" aria-hidden="true"></canvas>
+
+<!-- ============ GRÃO FOTOGRÁFICO ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="hd" id="hd">
+  <a href="#topo" class="hd__logo" data-cur aria-label="Hungria — início"><img src="hungria logo.png" alt="Hungria"></a>
+  <nav class="hd__nav" aria-label="Principal">
+    <a href="#musica" data-cur>Música</a>
+    <a href="agenda.html" data-cur>Agenda</a>
+    <a href="#sobre" data-cur>Sobre</a>
+    <a href="#jornada" data-cur>Trajetória</a>
+  </nav>
+  <a class="hd__cta" id="hdCta" href="#" target="_blank" rel="noopener" data-cur>Ouvir</a>
+  <button class="hd__burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<!-- ============ MENU ============ -->
+<div class="mnav" id="mnav">
+  <button class="mnav__close" id="menuClose" aria-label="Fechar">Fechar</button>
+  <nav aria-label="Menu">
+    <a href="#musica"><i>01</i> Música</a>
+    <a href="agenda.html"><i>02</i> Agenda</a>
+    <a href="#sobre"><i>03</i> Sobre</a>
+    <a href="#jornada"><i>04</i> Trajetória</a>
+    <a href="#contato"><i>05</i> Contato</a>
+  </nav>
+  <div class="mnav__social" id="mnavSocial"></div>
+</div>
+
+<main>
+
+<!-- ============ HERO (camadas: foto · fumaça · luz · poeira · texto) ============ -->
+<section class="hero hero--center" id="inicio" data-hero>
+  <div class="hero__stage" id="heroStage">
+    <div class="hero__layer hero__photo" data-depth="14">
+      <img id="heroImg" src="" alt="Hungria ao vivo no palco">
+      <video id="heroVideo" class="hero__video" muted loop playsinline preload="auto" poster="assets/img/fotos/hero-poster2.jpg" tabindex="-1" aria-hidden="true"></video>
+    </div>
+    <div class="hero__layer hero__fog" data-depth="26" aria-hidden="true"></div>
+    <div class="hero__layer hero__light" id="heroLight" data-depth="40" aria-hidden="true"></div>
+    <canvas class="hero__dust" id="heroDust" aria-hidden="true"></canvas>
+    <div class="hero__grad" aria-hidden="true"></div>
+    <button class="hero__play" id="heroPlay" aria-label="Tocar o vídeo"><span class="hero__play__ico" aria-hidden="true"></span></button>
+  </div>
+  <div class="hero__inner hero__inner--center">
+    <a class="hero__agenda" id="heroAgenda" href="agenda.html" data-cur>Ver agenda</a>
+  </div>
+</section>
+
+
+<!-- ============ MÚSICA ============ -->
+<section class="sec" id="musica">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="tag">01 — Música</span>
+      <h2 class="h2">Ouça agora</h2>
+      <p class="head__d">Do último single ao catálogo completo, direto do Spotify.</p>
+    </div>
+
+    <!-- capas de CD em leque (os 5 destaques); clique abre no Spotify -->
+    <div class="fandeck reveal" id="deck"></div>
+
+    <!-- player NATIVO do Spotify (top tracks do artista) num quadro escuro -->
+    <div class="oa__player reveal">
+      <iframe class="oa__frame" src="https://open.spotify.com/embed/artist/0vLuOi2k62sHujIfplInlK?utm_source=generator&theme=0"
+        width="100%" height="420" frameborder="0" loading="lazy"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        title="Player do Spotify — Hungria"></iframe>
+    </div>
+
+    <!-- continuar a experiência: Spotify + YouTube -->
+    <div class="oa__ctas reveal">
+      <a class="mbtn" href="https://open.spotify.com/artist/0vLuOi2k62sHujIfplInlK" target="_blank" rel="noopener" data-cur>
+        <span class="mbtn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.43a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.56-1.15a.75.75 0 1 1-.33-1.46c4.55-1.04 8.48-.59 11.64 1.34.35.21.46.67.28 1.02Zm1.23-2.74a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.8c4.37-1.32 9.79-.68 13.5 1.6.44.27.58.85.3 1.29Zm.11-2.85C14.06 8.54 7.9 8.33 4.4 9.39a1.12 1.12 0 1 1-.65-2.15c4.02-1.22 10.82-.98 15.09 1.56a1.12 1.12 0 1 1-1.15 1.93Z"/></svg></span>
+        <span>Ouvir no Spotify</span><span class="mbtn__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="mbtn" href="https://www.youtube.com/channel/UCAI8SmRbXgSpP8Zo3xZbxzQ" target="_blank" rel="noopener" data-cur>
+        <span class="mbtn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.6-.46-5.32a2.76 2.76 0 0 0-1.94-1.95C18.88 4.27 12 4.27 12 4.27s-6.88 0-8.6.46A2.76 2.76 0 0 0 1.46 6.68C1 8.4 1 12 1 12s0 3.6.46 5.32c.25.94.99 1.68 1.94 1.94 1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.76 2.76 0 0 0 1.94-1.94C23 15.6 23 12 23 12ZM9.75 15.5v-7l6 3.5-6 3.5Z"/></svg></span>
+        <span>Ver no YouTube</span><span class="mbtn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO (foto P&B, fica atrás e o resto passa por cima) ============ -->
+<section class="mf-wrap" id="manifesto">
+  <div class="mf">
+    <img class="mf__bg" src="assets/img/fotos/hero-portrait.jpg" alt="" aria-hidden="true">
+    <div class="mf__inner">
+      <div class="mf__mark">✦ ✦ ✦<br><b>+55©</b></div>
+      <h2 class="mf__stmt">Nunca separamos<br>o rap da rua do<br>rap que toca o Brasil.</h2>
+      <p class="mf__sig">Isso é <span>Hungria</span></p>
+      <div class="mf__foot">Desde 2007©<br>Brasília — DF</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TURNÊ ============ -->
+<section class="sec bg-reveal" id="turne">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="tag">03 — Turnê</span>
+      <h2 class="h2">Shows</h2>
+      <p class="head__d">Próximas datas.</p>
+    </div>
+    <div class="dates" id="shows-list"></div>
+    <p class="dates__note reveal">Quer o Hungria na sua cidade? <a href="#contato" data-cur>Fale com o booking</a>.</p>
+  </div>
+</section>
+
+<!-- ============ GRANDE HIT (clipe com scroll zoom reveal) — entre Turnê (03) e Sobre (04) ============ -->
+<section class="ghit" id="grande-hit" aria-label="Grande Hit — clipe do Hungria">
+  <div class="ghit__pin" id="ghitPin">
+    <div class="ghit__reel" id="ghitReel">
+      <span class="ghit__year">©2026</span>
+      <span class="ghit__slot" aria-hidden="true"></span>
+      <span class="ghit__lab">Grande Hit</span>
+    </div>
+    <div class="ghit__pill" id="ghitPill">
+      <video class="ghit__video" id="ghitVideo" muted loop playsinline preload="metadata" poster="assets/videos/grande-hit-poster.jpg">
+        <source src="assets/videos/grande-hit.mp4" type="video/mp4">
+      </video>
+      <span class="ghit__grad" aria-hidden="true"></span>
+    </div>
+    <div class="ghit__cap">
+      <span class="ghit__kicker">Clipe em destaque</span>
+      <h2 class="ghit__title">Grande Hit</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE (logo com efeito heatmap + biografia) ============ -->
+<section class="sec sec--about" id="sobre">
+  <div class="wrap">
+    <div class="bio">
+      <!-- efeito de mapa térmico sobre a logomarca (recorte pelo alpha) -->
+      <div class="heat reveal" id="heat" aria-hidden="true">
+        <div class="sfoto">
+          <picture>
+            <source type="image/webp" srcset="assets/img/fotos/sobre-foto.webp">
+            <img src="assets/img/fotos/sobre-foto.jpg" alt="Hungria no palco" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="bio__text">
+        <span class="tag reveal">04 — Sobre</span>
+        <h2 class="h2 reveal" id="sobreTitulo"></h2>
+        <div class="bio__body" id="bioText"></div>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<!-- ============ TRAJETÓRIA (início · meio · agora) ============ -->
+<section class="sec jrn bg-reveal" id="jornada">
+  <div class="wrap">
+    <div class="jrn__top reveal">
+      <div class="jrn__label jrn__label--l" id="jornadaSeloEsq"></div>
+      <h2 class="jrn__h2" id="jornadaTitulo"></h2>
+      <div class="jrn__label jrn__label--r" id="jornadaSeloDir"></div>
+    </div>
+    <div class="jrn__grid" id="jornada-grid"></div>
+    <div class="jrn__cta reveal">
+      <a class="jrn__link" href="#contato" data-cur>→ Orçar um projeto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESSÊNCIA (texto que acende no scroll + foto com parallax) ============ -->
+<section class="mtx" id="essencia" aria-label="Sobre o Hungria">
+  <div class="mtx__wrap">
+    <div class="mtx__text" id="mtxText">
+      <p>O Hungria é o som que a quebrada de Brasília construiu. Do teclado da igreja aos bilhões de plays, quinze anos de estrada forjaram uma voz que é nativa, real e <span class="mtx__u mtx__u--line">cantada de cor</span>.</p>
+      <p>Hoje esse som é exatamente o que toca no rolê, na estrada e na história de amor de um <span class="mtx__u mtx__u--strike">Brasil inteiro</span> — do trap romântico ao rap que gruda de primeira.</p>
+      <p>Não é só música. É a batida que virou <span class="mtx__u mtx__u--circle">trilha de uma geração</span>.</p>
+    </div>
+    <div class="mtx__photo" data-parallax>
+      <picture>
+        <source type="image/webp" srcset="assets/img/fotos/essencia.webp">
+        <img src="assets/img/fotos/essencia.jpg" alt="Hungria em performance acústica com coral e velas" loading="lazy" decoding="async">
+      </picture>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPTH BLUR CAROUSEL (coverflow 3D: centro grande, laterais recuam, bordas desfocadas) ============ -->
+<section class="galgrid" id="galeria" aria-label="Hungria ao vivo — galeria">
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-1.webp"><img src="assets/img/fotos/gal-1.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-2.webp"><img src="assets/img/fotos/gal-2.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-3.webp"><img src="assets/img/fotos/gal-3.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-4.webp"><img src="assets/img/fotos/gal-4.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-5.webp"><img src="assets/img/fotos/gal-5.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-6.webp"><img src="assets/img/fotos/gal-6.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+  <figure class="galgrid__item"><picture><source type="image/webp" srcset="assets/img/fotos/gal-7.webp"><img src="assets/img/fotos/gal-7.jpg" alt="Hungria ao vivo" loading="lazy" decoding="async"></picture></figure>
+</section>
+
+<!-- ============ FAIXA (silhueta em P&B + frase — estilo SAND) ============ -->
+<section class="banda" id="faixa" aria-label="Hungria ao vivo">
+  <div class="banda__card" id="bandaCard" data-parallax>
+    <!-- PC (desktop): imagem paisagem otimizada · Celular: a portrait -->
+    <picture>
+      <source media="(min-width:768px)" srcset="assets/img/fotos/faixa-pc.jpg">
+      <img class="banda__bg" src="assets/img/fotos/faixa-silhueta.jpg" alt="Hungria em silhueta diante da multidão" loading="lazy">
+    </picture>
+    <span class="banda__veil" aria-hidden="true"></span>
+    <div class="banda__row">
+      <img class="banda__mark" src="hungria logo.png" alt="Hungria">
+      <!-- TROQUE aqui pela frase EXATA do Hungria que você quiser -->
+      <span class="banda__frase">de Brasília pro Brasil.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="cta bg-reveal" id="contato">
+  <div class="cta__embers" id="embers" aria-hidden="true"></div>
+  <div class="wrap cta__inner">
+    <div class="cta__left reveal">
+      <span class="tag">05 — Contato</span>
+      <h2 class="h2 cta__title">Fique por dentro<br>e fale com a gente</h2>
+      <form class="news" id="newsForm" novalidate>
+        <input type="email" name="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+        <button class="btn" type="submit" data-cur>Inscrever</button>
+      </form>
+      <p class="news__msg" id="newsMsg" role="status"></p>
+      <div class="cta__cards" id="contactCards"></div>
+    </div>
+    <form class="form reveal" id="contactForm" novalidate>
+      <div class="form__row">
+        <label>Nome<input type="text" name="nome" required></label>
+        <label>E-mail<input type="email" name="email" required></label>
+      </div>
+      <label>Assunto
+        <select name="assunto">
+          <option>Booking / Contratação de show</option>
+          <option>Imprensa</option>
+          <option>Parceria / Publicidade</option>
+          <option>Outro</option>
+        </select>
+      </label>
+      <label>Mensagem<textarea name="mensagem" rows="4" required></textarea></label>
+      <button class="btn" type="submit" data-cur>Enviar mensagem</button>
+      <p class="form__msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__grid">
+      <div class="ft__col"><h4>Navegue</h4><a href="#musica">Música</a><a href="#turne">Turnê</a><a href="#sobre">Sobre</a></div>
+      <div class="ft__col" id="footerPlat"><h4>Ouça</h4></div>
+      <div class="ft__col" id="footerSocial"><h4>Siga</h4></div>
+      <div class="ft__col" id="footerContato"><h4>Contato</h4></div>
+    </div>
+    <div class="ft__bar">
+      <span>© <span id="year"></span> Hungria. Todos os direitos reservados.</span>
+      <a href="#topo" data-cur>Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="mdl" id="modal" aria-hidden="true">
+  <button class="mdl__x" id="modalClose" aria-label="Fechar">Fechar ✕</button>
+  <div class="mdl__box" id="modalBox"></div>
+</div>
+
+<!-- scroll suave com inércia (estilo Sand) — degrada sem ele -->
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="assets/js/data.js?v=20260813p"></script>
+<script src="assets/js/main.js?v=20260813p"></script>
+</body>
+</html>

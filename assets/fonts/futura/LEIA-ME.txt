@@ -1,0 +1,18 @@
+FUTURA CONDENSED — ARQUIVOS NECESSÁRIOS
+=======================================
+Coloque aqui os arquivos LICENCIADOS da Futura Condensed com EXATAMENTE
+estes nomes (o @font-face em assets/css/style.css já aponta para eles):
+
+  FuturaCondensed-Bold.woff2      (peso 700)
+  FuturaCondensed-Bold.woff
+  FuturaCondensed-ExtraBold.woff2 (peso 800)   [opcional, recomendado]
+  FuturaCondensed-ExtraBold.woff
+
+Formatos aceitos: .woff2 (preferido) e .woff. Se você só tiver .otf/.ttf,
+pode colocar também (FuturaCondensed-Bold.otf) que o @font-face tem fallback,
+mas o ideal para web é converter para .woff2.
+
+Enquanto estes arquivos NÃO estiverem aqui, o site usa "Oswald" (Google Fonts)
+como SUBSTITUTA TEMPORÁRIA e VISÍVEL — não é a Futura, é só um stand-in
+condensado até a licenciada ser adicionada. Assim que os arquivos acima
+entrarem nesta pasta, a Futura assume automaticamente, sem mexer em código.

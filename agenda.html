@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda — Hungria</title>
+
+<meta name="description" content="Agenda oficial de shows do Hungria. Confira as próximas datas da turnê e garanta seu ingresso.">
+<meta name="theme-color" content="#050505">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hungria">
+<meta property="og:title" content="Agenda — Hungria">
+<meta property="og:description" content="Próximas datas da turnê do Hungria. Garanta seu ingresso.">
+<meta property="og:image" content="assets/img/og-cover.svg">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css?v=20260813p">
+</head>
+
+<body>
+<a class="skip" href="#agenda">Pular para a agenda</a>
+<span id="topo"></span>
+
+<!-- ============ GRÃO FOTOGRÁFICO ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="hd stuck" id="hd">
+  <a href="index.html#topo" class="hd__logo" aria-label="Hungria — início"><img src="hungria logo.png" alt="Hungria"></a>
+  <nav class="hd__nav" aria-label="Principal">
+    <a href="index.html#musica">Música</a>
+    <a href="agenda.html" class="on" aria-current="page">Agenda</a>
+    <a href="index.html#sobre">Sobre</a>
+  </nav>
+  <a class="hd__cta" id="hdCta" href="#" target="_blank" rel="noopener">Ouvir</a>
+  <button class="hd__burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<!-- ============ MENU ============ -->
+<div class="mnav" id="mnav">
+  <button class="mnav__close" id="menuClose" aria-label="Fechar">Fechar</button>
+  <nav aria-label="Menu">
+    <a href="index.html#musica"><i>01</i> Música</a>
+    <a href="agenda.html"><i>02</i> Agenda</a>
+    <a href="index.html#sobre"><i>03</i> Sobre</a>
+    <a href="index.html#contato"><i>04</i> Contato</a>
+  </nav>
+  <div class="mnav__social" id="mnavSocial"></div>
+</div>
+
+<main>
+
+<!-- ============ TOPO DA AGENDA ============ -->
+<section class="agenda-top">
+  <div class="secbg" data-parallax aria-hidden="true">
+    <picture>
+      <source type="image/webp" srcset="assets/img/fotos/agenda-hero.webp">
+      <img class="secbg__img" src="assets/img/fotos/agenda-hero.jpg" alt="" decoding="async">
+    </picture>
+    <span class="secbg__veil"></span>
+  </div>
+  <div class="wrap">
+    <a class="agenda-top__back" href="index.html">← Voltar ao site</a>
+    <span class="tag" id="agendaSelo">Turnê 2026</span>
+    <h1 class="agenda-top__title">Agenda</h1>
+    <p class="agenda-top__sub">Todas as próximas datas do Hungria. Garanta seu ingresso antes de esgotar.</p>
+  </div>
+</section>
+
+<!-- ============ LISTA DE DATAS ============ -->
+<section class="sec sec--agenda" id="agenda">
+  <div class="wrap">
+    <div class="dates" id="agenda-list"></div>
+    <p class="dates__note">Quer o Hungria na sua cidade? <a href="index.html#contato">Fale com o booking</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__grid">
+      <div class="ft__col"><h4>Navegue</h4><a href="index.html#musica">Música</a><a href="agenda.html">Agenda</a><a href="index.html#sobre">Sobre</a></div>
+      <div class="ft__col" id="footerPlat"><h4>Ouça</h4></div>
+      <div class="ft__col" id="footerSocial"><h4>Siga</h4></div>
+      <div class="ft__col" id="footerContato"><h4>Contato</h4></div>
+    </div>
+    <div class="ft__bar">
+      <span>© <span id="year"></span> Hungria. Todos os direitos reservados.</span>
+      <a href="index.html#topo">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js?v=20260813p"></script>
+<script src="assets/js/agenda.js?v=20260813p"></script>
+<!-- profundidade sutil com o mouse no hero da agenda (só desktop com ponteiro fino) -->
+<script>
+(function(){
+  var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine  = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var bg = document.querySelector('.agenda-top .secbg__img');
+  var fg = document.querySelector('.agenda-top > .wrap');
+  if (reduz || !fine || !bg) return;
+  var tx=0, ty=0, cx=0, cy=0, raf=0;
+  function loop(){
+    raf = 0;
+    cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+    bg.style.transform = 'translate3d(' + (cx*14).toFixed(2) + 'px,' + (cy*12).toFixed(2) + 'px,0) scale(1.08)';
+    if (fg) fg.style.transform = 'translate3d(' + (cx*-5).toFixed(2) + 'px,' + (cy*-4).toFixed(2) + 'px,0)';
+    if (Math.abs(tx-cx) > 0.001 || Math.abs(ty-cy) > 0.001) raf = requestAnimationFrame(loop);
+  }
+  addEventListener('mousemove', function(e){
+    tx = e.clientX/innerWidth - 0.5; ty = e.clientY/innerHeight - 0.5;
+    if (!raf) raf = requestAnimationFrame(loop);
+  }, { passive:true });
+})();
+</script>
+</body>
+</html>

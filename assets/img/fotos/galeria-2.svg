@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="1200" height="1800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#8A8A8A"/><stop offset="45%" stop-color="#4E4E4E"/><stop offset="100%" stop-color="#1C1C1C"/>
+    </linearGradient>
+    <radialGradient id="s" cx="50%" cy="34%" r="42%">
+      <stop offset="0%" stop-color="#C9C9C9" stop-opacity="0.55"/><stop offset="100%" stop-color="#C9C9C9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <rect width="100%" height="100%" fill="url(#s)"/>
+  <circle cx="600" cy="594" r="192" fill="#0F0F0F" fill-opacity="0.5"/>
+  <path d="M 144 1800 q 456 -756 912 0 z" fill="#0F0F0F" fill-opacity="0.5"/>
+  <text x="50%" y="1548" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.9"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="700" font-size="90">FOTO 2</text>
+  <text x="50%" y="1674" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.55"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="36">trocar pela foto oficial</text>
+</svg>

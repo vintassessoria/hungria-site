@@ -1,0 +1,31 @@
+# ===== Dependências / builds / projetos externos (NÃO vão pro deploy) =====
+node_modules/
+.next/
+Quintal do Hungria LP/
+
+# ===== Artefatos locais =====
+_site_deploy/
+.claude/
+scratchpad/
+
+# ===== Sistema =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Fotos/vídeos ORIGINAIS soltos na raiz =====
+# (o site usa as versões OTIMIZADAS que estão em assets/, então os brutos ficam de fora)
+/*.JPG
+/*.jpg
+/*.JPEG
+/*.jpeg
+/*.PNG
+/*.png
+/*.webp
+/*.mp4
+/*.MP4
+/*.mov
+/*.MOV
+
+# ===== Exceção: a única imagem da raiz que o site realmente usa =====
+!/hungria logo.png
