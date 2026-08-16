@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260813p">
+<link rel="stylesheet" href="assets/css/style.css?v=20260816a">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 
@@ -123,6 +123,7 @@
     var sec = document.getElementById("jornada");
     var frames = sec ? sec.querySelectorAll(".jrn__frame") : [];
     if (!frames.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (matchMedia("(max-width: 760px)").matches) return;   // mobile: sem tilt (evita travar o scroll)
     var items = [];
     for (var i=0;i<frames.length;i++) items.push({ f:frames[i], dir:(i%2===0?1:-1) });
     (function loop(){
@@ -168,32 +169,62 @@
 </script>
 
 <script>
-// MOBILE: scroll-jacking horizontal — ao rolar a página, os slides da Trajetória
-// e da Galeria passam sozinhos pro lado (dirigido pela posição vertical da faixa).
+// GALERIA (mobile): as fotos passam sozinhas pro lado conforme a página rola
+// (scroll-jack, dirigido pela posição vertical). A Trajetória fica no swipe manual.
 (function(){
   function init(){
-    var carousels = [
-      document.querySelector("#jornada .jrn__grid"),
-      document.getElementById("galeria")
-    ].filter(Boolean);
+    var carousels = [ document.querySelector("#jornada .jrn__grid"), document.getElementById("galeria") ].filter(Boolean);
     if (!carousels.length) return;
-    var mob = matchMedia("(max-width: 760px)");
     (function loop(){
-      if (mob.matches){
-        var vh = innerHeight;
-        for (var i=0;i<carousels.length;i++){
-          var c = carousels[i];
-          var max = c.scrollWidth - c.clientWidth;
-          if (max > 4){
-            var r = c.getBoundingClientRect();
-            var p = (vh - r.top) / (vh + r.height);
-            if (p < 0) p = 0; else if (p > 1) p = 1;
-            c.scrollLeft = p * max;
-          }
+      var vh = innerHeight;
+      for (var i=0;i<carousels.length;i++){
+        var c = carousels[i];
+        var max = c.scrollWidth - c.clientWidth;   // grade sem overflow => max 0 => ignora
+        if (max > 4){
+          var r = c.getBoundingClientRect();
+          var p = (vh - r.top) / (vh + r.height);
+          if (p < 0) p = 0; else if (p > 1) p = 1;
+          c.scrollLeft = p * max;
         }
       }
       requestAnimationFrame(loop);
     })();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+// EXPANDED CARDS (Sobre): clique/toque expande o card (no desktop o hover já abre).
+(function(){
+  function init(){
+    var cards = document.querySelectorAll("#excards .excard");
+    if (!cards.length) return;
+    cards.forEach(function(card){
+      card.addEventListener("click", function(){
+        var open = card.classList.contains("is-open");
+        cards.forEach(function(c){ c.classList.remove("is-open"); });
+        if (!open) card.classList.add("is-open");
+      });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
+<script>
+// MorphedMenu: clique faz morph e abre; fecha ao clicar fora, no Esc ou num link.
+(function(){
+  function init(){
+    var m = document.getElementById("mmenu"), b = document.getElementById("mmenuBtn");
+    if (!m || !b) return;
+    function set(open){ m.classList.toggle("open", open); b.setAttribute("aria-expanded", open ? "true" : "false"); }
+    b.addEventListener("click", function(e){ e.stopPropagation(); set(!m.classList.contains("open")); });
+    document.addEventListener("click", function(e){ if (m.classList.contains("open") && !m.contains(e.target)) set(false); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") set(false); });
+    m.querySelectorAll(".mmenu__panel a").forEach(function(a){ a.addEventListener("click", function(){ set(false); }); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
@@ -217,14 +248,35 @@
 <!-- ============ HEADER ============ -->
 <header class="hd" id="hd">
   <a href="#topo" class="hd__logo" data-cur aria-label="Hungria — início"><img src="hungria logo.png" alt="Hungria"></a>
-  <nav class="hd__nav" aria-label="Principal">
-    <a href="#musica" data-cur>Música</a>
-    <a href="agenda.html" data-cur>Agenda</a>
-    <a href="#sobre" data-cur>Sobre</a>
-    <a href="#jornada" data-cur>Trajetória</a>
+  <!-- nav antiga: mantida oculta no DOM só pra não quebrar o main.js (#burger/scrollspy) -->
+  <nav class="hd__nav" aria-label="Principal" aria-hidden="true">
+    <a href="#musica" tabindex="-1">Música</a>
+    <a href="agenda.html" tabindex="-1">Agenda</a>
+    <a href="#sobre" tabindex="-1">Sobre</a>
+    <a href="#jornada" tabindex="-1">Trajetória</a>
   </nav>
-  <a class="hd__cta" id="hdCta" href="#" target="_blank" rel="noopener" data-cur>Ouvir</a>
-  <button class="hd__burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  <a class="hd__cta" href="#" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Ouvir</a>
+  <button class="hd__burger" id="burger" aria-label="Menu" aria-expanded="false" tabindex="-1" aria-hidden="true"><span></span><span></span></button>
+
+  <!-- MorphedMenu: pílula que faz morph num painel com os links -->
+  <div class="mmenu" id="mmenu">
+    <div class="mmenu__surface">
+      <button class="mmenu__btn" id="mmenuBtn" aria-expanded="false" aria-controls="mmenuPanel" aria-label="Abrir menu">
+        <span class="mmenu__label">Menu</span>
+        <span class="mmenu__ico" aria-hidden="true"></span>
+      </button>
+      <div class="mmenu__panel" id="mmenuPanel" role="menu">
+        <nav aria-label="Navegação principal">
+          <a href="#musica" role="menuitem" data-cur><small>01</small>Música</a>
+          <a href="agenda.html" role="menuitem" data-cur><small>02</small>Agenda</a>
+          <a href="#sobre" role="menuitem" data-cur><small>03</small>Sobre</a>
+          <a href="#jornada" role="menuitem" data-cur><small>04</small>Trajetória</a>
+          <a href="#contato" role="menuitem" data-cur><small>05</small>Contato</a>
+        </nav>
+        <a class="mmenu__cta" id="hdCta" href="#" target="_blank" rel="noopener" data-cur>Ouvir no Spotify</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <!-- ============ MENU ============ -->
@@ -347,12 +399,13 @@
   <div class="wrap">
     <div class="bio">
       <!-- efeito de mapa térmico sobre a logomarca (recorte pelo alpha) -->
-      <div class="heat reveal" id="heat" aria-hidden="true">
-        <div class="sfoto">
-          <picture>
-            <source type="image/webp" srcset="assets/img/fotos/sobre-foto.webp">
-            <img src="assets/img/fotos/sobre-foto.jpg" alt="Hungria no palco" loading="lazy" decoding="async">
-          </picture>
+      <div class="heat reveal" id="heat">
+        <div class="excards" id="excards" role="list" aria-label="Hungria em imagens">
+          <figure class="excard" role="listitem"><img src="assets/img/fotos/gal-2.webp" alt="Hungria cantando ao microfone" loading="lazy" decoding="async"><figcaption class="excard__cap">A voz</figcaption></figure>
+          <figure class="excard" role="listitem"><img src="assets/img/fotos/gal-3.webp" alt="Hungria apontando para o alto no show" loading="lazy" decoding="async"><figcaption class="excard__cap">Gratidão</figcaption></figure>
+          <figure class="excard is-open" role="listitem"><img src="assets/img/fotos/gal-1.webp" alt="Hungria em pé cantando no palco" loading="lazy" decoding="async"><figcaption class="excard__cap">Presença</figcaption></figure>
+          <figure class="excard" role="listitem"><img src="assets/img/fotos/gal-5.webp" alt="Hungria abraçando uma fã no show" loading="lazy" decoding="async"><figcaption class="excard__cap">O abraço</figcaption></figure>
+          <figure class="excard" role="listitem"><img src="assets/img/fotos/gal-7.webp" alt="Hungria no banquinho em show intimista à luz de velas" loading="lazy" decoding="async"><figcaption class="excard__cap">Intimista</figcaption></figure>
         </div>
       </div>
       <div class="bio__text">
@@ -485,7 +538,7 @@
 
 <!-- scroll suave com inércia (estilo Sand) — degrada sem ele -->
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="assets/js/data.js?v=20260813p"></script>
-<script src="assets/js/main.js?v=20260813p"></script>
+<script src="assets/js/data.js?v=20260816a"></script>
+<script src="assets/js/main.js?v=20260816a"></script>
 </body>
 </html>

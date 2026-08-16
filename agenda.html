@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260813p">
+<link rel="stylesheet" href="assets/css/style.css?v=20260816a">
 </head>
 
 <body>
@@ -40,8 +40,28 @@
     <a href="agenda.html" class="on" aria-current="page">Agenda</a>
     <a href="index.html#sobre">Sobre</a>
   </nav>
-  <a class="hd__cta" id="hdCta" href="#" target="_blank" rel="noopener">Ouvir</a>
-  <button class="hd__burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  <a class="hd__cta" href="#" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Ouvir</a>
+  <button class="hd__burger" id="burger" aria-label="Menu" aria-expanded="false" tabindex="-1" aria-hidden="true"><span></span><span></span></button>
+
+  <!-- MorphedMenu: pílula que faz morph num painel com os links -->
+  <div class="mmenu" id="mmenu">
+    <div class="mmenu__surface">
+      <button class="mmenu__btn" id="mmenuBtn" aria-expanded="false" aria-controls="mmenuPanel" aria-label="Abrir menu">
+        <span class="mmenu__label">Menu</span>
+        <span class="mmenu__ico" aria-hidden="true"></span>
+      </button>
+      <div class="mmenu__panel" id="mmenuPanel" role="menu">
+        <nav aria-label="Navegação principal">
+          <a href="index.html#musica" role="menuitem" data-cur><small>01</small>Música</a>
+          <a href="agenda.html" role="menuitem" class="on" aria-current="page" data-cur><small>02</small>Agenda</a>
+          <a href="index.html#sobre" role="menuitem" data-cur><small>03</small>Sobre</a>
+          <a href="index.html#jornada" role="menuitem" data-cur><small>04</small>Trajetória</a>
+          <a href="index.html#contato" role="menuitem" data-cur><small>05</small>Contato</a>
+        </nav>
+        <a class="mmenu__cta" id="hdCta" href="#" target="_blank" rel="noopener" data-cur>Ouvir no Spotify</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <!-- ============ MENU ============ -->
@@ -101,8 +121,24 @@
   </div>
 </footer>
 
-<script src="assets/js/data.js?v=20260813p"></script>
-<script src="assets/js/agenda.js?v=20260813p"></script>
+<script src="assets/js/data.js?v=20260816a"></script>
+<script src="assets/js/agenda.js?v=20260816a"></script>
+<!-- MorphedMenu: abre/fecha com clique -->
+<script>
+(function(){
+  function init(){
+    var m = document.getElementById("mmenu"), b = document.getElementById("mmenuBtn");
+    if (!m || !b) return;
+    function set(open){ m.classList.toggle("open", open); b.setAttribute("aria-expanded", open ? "true" : "false"); }
+    b.addEventListener("click", function(e){ e.stopPropagation(); set(!m.classList.contains("open")); });
+    document.addEventListener("click", function(e){ if (m.classList.contains("open") && !m.contains(e.target)) set(false); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") set(false); });
+    m.querySelectorAll(".mmenu__panel a").forEach(function(a){ a.addEventListener("click", function(){ set(false); }); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
 <!-- profundidade sutil com o mouse no hero da agenda (só desktop com ponteiro fino) -->
 <script>
 (function(){
