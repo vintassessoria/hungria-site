@@ -200,10 +200,10 @@ window.SITE_DATA = {
         texto: "Do teclado da igreja em Brasília aos primeiros raps que a quebrada do DF aprendeu de cor.",
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02295449e2983bad402b102363" },  // capa mais antiga (Antigas / Hip Hop Tuning, 2009)
       { num: "02", titulo: "A Ascensão", script: "O nome que o país cantou.",
-        texto: "Dubai, Beijo com Trap, bilhões de plays — o som de Brasília virou trilha do mundo inteiro.",
+        texto: "Um Pedido, Lembranças, bilhões de plays — o som de Brasília virou trilha do mundo inteiro.",
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02055bbb715f18dc40b39908d6" },  // Zorro do Asfalto
       { num: "03", titulo: "O Legado", script: "Trilha de uma geração.",
-        texto: "Arenas lotadas e uma legião que sabe cada verso. A história continua sendo escrita.",
+        texto: "Amor e Fé, Temporal, Preta — arenas lotadas e uma legião que sabe cada verso. A história continua sendo escrita.",
         foto: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02afcc8db00abdf22cf6a82545" },  // mais recente (Virou Verão, 2025)
     ],
   },
