@@ -557,6 +557,23 @@ a.dates__tag:hover{ background:var(--red); border-color:var(--red); transform:tr
 .dates__empty{ padding:40px 0; color:var(--gray); }
 .dates__d small{ display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--gray); font-weight:400; margin-top:4px; }
 
+/* ---- Reveal "painel de embarque": cada linha CAI como um flap 3D, escalonada.
+       A data desliza da esquerda e dá um flash vermelho ao assentar. ---- */
+.dates{ perspective:1500px; }
+.js .dates__row.reveal{ opacity:0; transform:rotateX(-72deg) translateY(10px); transform-origin:top center;
+  backface-visibility:hidden; will-change:transform, opacity;
+  transition:opacity .5s var(--e-out), transform .92s var(--e-out); transition-delay:var(--d,0ms); }
+.js .dates__row.reveal.on{ opacity:1; transform:rotateX(0deg) translateY(0); }
+.js .dates__row.reveal .dates__d{ opacity:0; transform:translateX(-16px); color:var(--red);
+  transition:opacity .5s var(--e-out), transform .7s var(--e-out), color 1s var(--e-out);
+  transition-delay:calc(var(--d,0ms) + 150ms); }
+.js .dates__row.reveal.on .dates__d{ opacity:1; transform:none; color:inherit; }
+/* fininha linha vermelha varre a base da linha ao assentar (temático de painel) */
+.js .dates__row.reveal::after{ content:""; position:absolute; left:0; bottom:-1px; width:100%; height:2px;
+  background:linear-gradient(90deg, var(--red), rgba(181,22,32,0)); transform:scaleX(0); transform-origin:left; opacity:0; }
+.js .dates__row.reveal.on::after{ transform:scaleX(1); opacity:.9;
+  transition:transform .8s var(--e-out), opacity .8s var(--e-out); transition-delay:calc(var(--d,0ms) + 300ms); }
+
 /* --- PÁGINA AGENDA (agenda.html) --------------------------------------- */
 .agenda-top{ position:relative; z-index:10; padding:clamp(130px,17vh,190px) 0 clamp(30px,4vw,52px); }
 .agenda-top__back{ display:block; width:max-content; font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
@@ -1120,6 +1137,8 @@ html.lenis, html.lenis body{ height:auto; }
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important;
     transition-duration:.001ms !important; }
   .js .reveal{ opacity:1 !important; transform:none !important; clip-path:none !important; }
+  .js .dates__row.reveal .dates__d{ opacity:1 !important; transform:none !important; color:inherit !important; }
+  .js .dates__row.reveal::after{ display:none !important; }
   .js .fancard{ opacity:1 !important; animation:none !important; }
   .js .hero__inner > *{ opacity:1 !important; transform:none !important; }
   .js .hero__photo img, .js .hero__photo video{ transform:none !important; }

@@ -53,12 +53,23 @@
 
   const lista = $("#agenda-list");
   if (lista) {
-    lista.innerHTML = datas.length ? datas.map((s) => {
+    lista.innerHTML = datas.length ? datas.map((s, i) => {
       const d = new Date(s.data + "T12:00:00");
-      return `<div class="dates__row">
+      return `<div class="dates__row reveal" style="--d:${i * 75}ms">
         <span class="dates__d">${String(d.getDate()).padStart(2, "0")} ${MES[d.getMonth()]}<small>${WD[d.getDay()]} · ${d.getFullYear()}</small></span>
         <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>
       </div>`;
     }).join("") : `<p class="dates__empty">Nenhuma data confirmada no momento. Novas cidades em breve — acompanhe as redes.</p>`;
+
+    // dispara o reveal "painel de embarque" quando cada linha entra na tela
+    const linhas = $$(".dates__row.reveal", lista);
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((es) => es.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+      }), { threshold: 0.14, rootMargin: "0px 0px -5% 0px" });
+      linhas.forEach((el) => io.observe(el));
+    } else {
+      linhas.forEach((el) => el.classList.add("on"));
+    }
   }
 })();
