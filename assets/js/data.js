@@ -73,7 +73,7 @@ window.SITE_DATA = {
       sub: "O som do DF que virou trilha do mundo inteiro.",
       release: "Novo single — O Playboy Rodou",
       foto: "assets/img/fotos/feature-wide.jpg",
-      video: "assets/videos/hero.mp4?v=2",
+      video: "assets/videos/hero.mp4?v=3",
       foco: "center 38%",
       ctaAgenda: "Ver agenda",       // botão único e central do hero (leva pra agenda.html)
     },

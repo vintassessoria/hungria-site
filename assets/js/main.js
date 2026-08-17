@@ -270,7 +270,7 @@
     // A foto fica como fundo e o vídeo assume por cima quando REALMENTE tocar.
     // Se o navegador bloquear o autoplay, o botão de play aparece — o gesto
     // do usuário sempre libera o vídeo, então o hero NUNCA fica sem vídeo.
-    heroImg.src = "assets/img/fotos/hero-start.jpg?v=2";   // background do hero (frame de 44s, take da touca — casa com o vídeo)
+    heroImg.src = "assets/img/fotos/hero-start.jpg?v=3";   // background do hero (frame 0 do VÍDEO CERTO — casa com o vídeo)
     heroImg.style.objectPosition = H.foco || "center 34%";
     heroVideo.src = H.video;
     heroVideo.style.objectPosition = H.foco || "center 34%";
