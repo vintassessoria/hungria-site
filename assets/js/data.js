@@ -117,34 +117,23 @@ window.SITE_DATA = {
      spotifyId vazio => o card só linka pro perfil do Spotify.
      --------------------------------------------------------------- */
   discografia: [
-    // ─── DESTAQUES (as 5 pedidas) — IDs e capas oficiais do Spotify (via oEmbed).
-    //     Estas aparecem como as CAPAS DE CD no leque da seção "Ouça agora".
-    { titulo: "Insônia", ano: "", tipo: "com Tribo da Periferia", tipoEmbed: "track", spotifyId: "0BB3OKNepoICimJJgfcNbs",
-      capa: "https://i.scdn.co/image/ab67616d0000b273e756d96b3f7961a3f16c2269" },
+    // ─── Faixas selecionadas pelo dono do site (nesta ordem).
+    //     Aparecem como as CAPAS DE CD no leque e na lista da seção "Ouça agora".
+    //     IDs e capas oficiais do Spotify (via oEmbed).
     { titulo: "Amor e Fé", ano: "", tipo: "Acústico", tipoEmbed: "track", spotifyId: "6ZEKE3RR5EMhAMTJzjGOB6",
       capa: "https://i.scdn.co/image/ab67616d0000b27357c4eac77883a5d57dae079d" },
-    { titulo: "Não Troco", ano: "2017", tipo: "Single", tipoEmbed: "track", spotifyId: "3v72fdPPqFMe02My4QupwO",
-      capa: "https://i.scdn.co/image/ab67616d0000b273ecb9c831d0bd6157b3972bd0" },
-    { titulo: "Astronauta", ano: "2016", tipo: "Single", tipoEmbed: "track", spotifyId: "76P45rrrPiRJ2SJYfJ8aRf",
-      capa: "https://i.scdn.co/image/ab67616d0000b27388a68b619da75596122339b6" },
     { titulo: "Preta", ano: "", tipo: "com João Carlos Martins", tipoEmbed: "track", spotifyId: "0UYB92l1Wrk98xVGN2MBaI",
       capa: "https://i.scdn.co/image/ab67616d0000b2730c2b6baf19fd9ca0491ba516" },
-    // ─── catálogo (IDs e capas oficiais do Spotify, via oEmbed).
     { titulo: "Um Pedido", ano: "2019", tipo: "Single", tipoEmbed: "track", spotifyId: "71dwCpTZQpjLuqnJzyGbFz",
       capa: "https://i.scdn.co/image/ab67616d0000b273799703775cd8eac4b2e97e8e" },
     { titulo: "Lembranças", ano: "2016", tipo: "Single", tipoEmbed: "track", spotifyId: "2BZx6pvXQpY8pExUmdkkm1",
       capa: "https://i.scdn.co/image/ab67616d0000b2734d7f4371bae76e432c022ed7" },
-    { titulo: "Coração de Aço", ano: "2017", tipo: "Single", tipoEmbed: "track", spotifyId: "6waLZw9qNP36DtHFPeyTz6",
-      capa: "https://i.scdn.co/image/ab67616d0000b273e6c83f559748a037d2e8ec26" },
     { titulo: "Dubai", ano: "2016", tipo: "Single", tipoEmbed: "track", spotifyId: "16Ij1j3ZawPQ2vxsnusKLY",
       capa: "https://i.scdn.co/image/ab67616d0000b273d9bb405761f343d75084d796" },
-    { titulo: "Provavelmente", ano: "2016", tipo: "Single", tipoEmbed: "track", spotifyId: "3cuY2usAdXwLGKh8TtWgj5",
-      capa: "https://i.scdn.co/image/ab67616d0000b273e8b8abfdb87d56ea551c4fce" },
-    { titulo: "Beijo Com Trap", ano: "2018", tipo: "Single", tipoEmbed: "track", spotifyId: "37LmF3FHmdMQErxJJUQaSd",
-      capa: "https://i.scdn.co/image/ab67616d0000b27324e5a4eebccc735b7cff85d2" },
-    // ─── +5 faixas reais (IDs e capas oficiais do Spotify, via oEmbed)
-    { titulo: "O Playboy Rodou", ano: "2025", tipo: "Single", tipoEmbed: "album", spotifyId: "4Dikk6I3cwNpc91OXARpQu",
-      capa: "https://i.scdn.co/image/ab67616d0000b27392753202de26d9ae3de1d748" },
+    { titulo: "Insônia", ano: "", tipo: "com Tribo da Periferia", tipoEmbed: "track", spotifyId: "0BB3OKNepoICimJJgfcNbs",
+      capa: "https://i.scdn.co/image/ab67616d0000b273e756d96b3f7961a3f16c2269" },
+    { titulo: "Emendou", ano: "2025", tipo: "com Tribo da Periferia", tipoEmbed: "track", spotifyId: "3NLXuaKeDDxvFwtDkBeOL8",
+      capa: "https://i.scdn.co/image/ab67616d0000b2737eabd87c7422724365ad54ad" },
   ],
 
   /* ---------------------------------------------------------------
