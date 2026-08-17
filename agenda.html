@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260817e">
+<link rel="stylesheet" href="assets/css/style.css?v=20260817f">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 
@@ -35,11 +35,11 @@
 
 <!-- ============ HEADER ============ -->
 <header class="hd stuck" id="hd">
-  <a href="index.html#topo" class="hd__logo" aria-label="Hungria — início"><img src="hungria logo.png" alt="Hungria"></a>
+  <a href="/#topo" class="hd__logo" aria-label="Hungria — início"><img src="hungria logo.png" alt="Hungria"></a>
   <nav class="hd__nav" aria-label="Principal">
-    <a href="index.html#musica">Música</a>
-    <a href="agenda.html" class="on" aria-current="page">Agenda</a>
-    <a href="index.html#sobre">Sobre</a>
+    <a href="/#musica">Música</a>
+    <a href="/agenda" class="on" aria-current="page">Agenda</a>
+    <a href="/#sobre">Sobre</a>
   </nav>
   <a class="hd__cta" href="#" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Ouvir</a>
   <button class="hd__burger" id="burger" aria-label="Menu" aria-expanded="false" tabindex="-1" aria-hidden="true"><span></span><span></span></button>
@@ -53,11 +53,11 @@
       </button>
       <div class="mmenu__panel" id="mmenuPanel" role="menu">
         <nav aria-label="Navegação principal">
-          <a href="index.html#musica" role="menuitem" data-cur><small>01</small>Música</a>
-          <a href="agenda.html" role="menuitem" class="on" aria-current="page" data-cur><small>02</small>Agenda</a>
-          <a href="index.html#sobre" role="menuitem" data-cur><small>03</small>Sobre</a>
-          <a href="index.html#jornada" role="menuitem" data-cur><small>04</small>Trajetória</a>
-          <a href="index.html#contato" role="menuitem" data-cur><small>05</small>Contato</a>
+          <a href="/#musica" role="menuitem" data-cur><small>01</small>Música</a>
+          <a href="/agenda" role="menuitem" class="on" aria-current="page" data-cur><small>02</small>Agenda</a>
+          <a href="/#sobre" role="menuitem" data-cur><small>03</small>Sobre</a>
+          <a href="/#jornada" role="menuitem" data-cur><small>04</small>Trajetória</a>
+          <a href="/#contato" role="menuitem" data-cur><small>05</small>Contato</a>
         </nav>
         <a class="mmenu__cta" id="hdCta" href="#" target="_blank" rel="noopener" data-cur>Ouvir no Spotify</a>
       </div>
@@ -69,10 +69,10 @@
 <div class="mnav" id="mnav">
   <button class="mnav__close" id="menuClose" aria-label="Fechar">Fechar</button>
   <nav aria-label="Menu">
-    <a href="index.html#musica"><i>01</i> Música</a>
-    <a href="agenda.html"><i>02</i> Agenda</a>
-    <a href="index.html#sobre"><i>03</i> Sobre</a>
-    <a href="index.html#contato"><i>04</i> Contato</a>
+    <a href="/#musica"><i>01</i> Música</a>
+    <a href="/agenda"><i>02</i> Agenda</a>
+    <a href="/#sobre"><i>03</i> Sobre</a>
+    <a href="/#contato"><i>04</i> Contato</a>
   </nav>
   <div class="mnav__social" id="mnavSocial"></div>
 </div>
@@ -89,7 +89,7 @@
     <span class="secbg__veil"></span>
   </div>
   <div class="wrap">
-    <a class="agenda-top__back" href="index.html">← Voltar ao site</a>
+    <a class="agenda-top__back" href="/">← Voltar ao site</a>
     <span class="tag" id="agendaSelo">Turnê 2026</span>
     <h1 class="agenda-top__title">Agenda</h1>
     <p class="agenda-top__sub">Todas as próximas datas do Hungria. Garanta seu ingresso antes de esgotar.</p>
@@ -100,7 +100,7 @@
 <section class="sec sec--agenda" id="agenda">
   <div class="wrap">
     <div class="dates" id="agenda-list"></div>
-    <p class="dates__note">Quer o Hungria na sua cidade? <a href="index.html#contato">Fale com o booking</a>.</p>
+    <p class="dates__note">Quer o Hungria na sua cidade? <a href="/#contato">Fale com o booking</a>.</p>
   </div>
 </section>
 
@@ -110,7 +110,7 @@
 <footer class="ft">
   <div class="wrap">
     <div class="ft__grid">
-      <div class="ft__col"><h4>Navegue</h4><a href="index.html#musica">Música</a><a href="agenda.html">Agenda</a><a href="index.html#sobre">Sobre</a></div>
+      <div class="ft__col"><h4>Navegue</h4><a href="/#musica">Música</a><a href="/agenda">Agenda</a><a href="/#sobre">Sobre</a></div>
       <div class="ft__col" id="footerPlat"><h4>Ouça</h4></div>
       <div class="ft__col" id="footerSocial"><h4>Siga</h4></div>
       <div class="ft__col" id="footerContato"><h4>Contato</h4></div>
@@ -126,13 +126,13 @@
 
     <div class="ft__bar">
       <span>© <span id="year"></span> Hungria. Todos os direitos reservados.</span>
-      <a href="index.html#topo">Voltar ao topo ↑</a>
+      <a href="/#topo">Voltar ao topo ↑</a>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/data.js?v=20260817e"></script>
-<script src="assets/js/agenda.js?v=20260817e"></script>
+<script src="assets/js/data.js?v=20260817f"></script>
+<script src="assets/js/agenda.js?v=20260817f"></script>
 <!-- MorphedMenu: abre/fecha com clique -->
 <script>
 (function(){
