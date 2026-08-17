@@ -270,13 +270,13 @@
     // A foto fica como fundo e o vídeo assume por cima quando REALMENTE tocar.
     // Se o navegador bloquear o autoplay, o botão de play aparece — o gesto
     // do usuário sempre libera o vídeo, então o hero NUNCA fica sem vídeo.
-    heroImg.src = "assets/img/fotos/hero-start.jpg";   // background do hero (frame de 5s, casa com o take do vídeo)
+    heroImg.src = "assets/img/fotos/hero-start.jpg?v=2";   // background do hero (frame de 44s, take da touca — casa com o vídeo)
     heroImg.style.objectPosition = H.foco || "center 34%";
     heroVideo.src = H.video;
     heroVideo.style.objectPosition = H.foco || "center 34%";
     const heroReelVid = $("#heroReelVid"); if (heroReelVid) { heroReelVid.src = H.video; const rp = heroReelVid.play(); if (rp) rp.catch(() => {}); }
     // começa num trecho mais claro do show (primeiros segundos são escuros)
-    heroVideo.addEventListener("loadedmetadata", () => { try { heroVideo.currentTime = 5; } catch (e) {} }, { once: true });
+    heroVideo.addEventListener("loadedmetadata", () => { try { heroVideo.currentTime = 44; } catch (e) {} }, { once: true });
     // usa CLASSE (não inline opacity) pra não brigar com a regra base do CSS
     const camada = heroImg.parentElement;   // .hero__photo
     const mostrar = (v) => camada.classList.toggle("show-video", !!v);
@@ -289,7 +289,7 @@
     heroVideo.addEventListener("error", () => { mostrar(false); esconderPlay(); });
     heroPlay.addEventListener("click", (e) => { e.preventDefault(); esconderPlay(); tentarTocar(); });
     // ── SINCRONIA COM A ABERTURA + tocar só quando o hero está visível ──
-    // O vídeo fica parado no frame inicial (5s = último take da abertura) até
+    // O vídeo fica parado no frame inicial (44s = take da touca, o destaque) até
     // (a) a abertura terminar e (b) o hero estar na tela. Fora do hero: pausa.
     const hpreEl = document.getElementById("hpre");
     const aberturaPronta = () => !hpreEl || hpreEl.classList.contains("done") || hpreEl.style.display === "none";
