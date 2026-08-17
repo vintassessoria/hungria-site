@@ -70,7 +70,7 @@ window.SITE_DATA = {
     hero: {
       kicker: "Site oficial",
       titulo: "HUNGRIA",           // nome gigante em display
-      sub: "O som do DF que virou trilha do Brasil inteiro.",
+      sub: "O som do DF que virou trilha do mundo inteiro.",
       release: "Novo single — O Playboy Rodou",
       foto: "assets/img/fotos/feature-wide.jpg",
       video: "assets/videos/hero.mp4",
@@ -80,14 +80,14 @@ window.SITE_DATA = {
 
     // Bloco-manifesto (texto grande da seção Sobre / experiência).
     manifesto: [
-      "Do teclado da igreja em Brasília aos bilhões de plays: o Hungria transformou o rap do DF em trilha de estrada, de rolê e de história de amor Brasil afora.",
+      "Do teclado da igreja em Brasília aos bilhões de plays: o Hungria transformou o rap do DF em trilha de estrada, de rolê e de história de amor mundo afora.",
       "Batida pesada, melodia de rádio e verso que gruda — uma assinatura que uma geração inteira canta de cor.",
     ],
 
     // Faixa de destaque (imagem grande com chamada).
     feature: {
       selo: "Ao vivo",
-      titulo: "Do palco pro Brasil inteiro",
+      titulo: "Do palco pro mundo",
       texto: "Batida pesada, melodia de rádio e o coração de Brasília — o som que virou trilha de uma geração.",
       foto: "assets/img/fotos/hero-portrait.jpg",
       cta: "Ver clipes",
@@ -172,12 +172,12 @@ window.SITE_DATA = {
      9. SOBRE
      --------------------------------------------------------------- */
   sobre: {
-    titulo: "Do DF pro Brasil inteiro",
+    titulo: "Do DF pro mundo",
     foto: "assets/img/fotos/foto-2.jpg",
     paragrafos: [
       "Gustavo da Hungria Neves, o Hungria Hip Hop, nasceu em Brasília e começou na música ainda criança, tocando teclado na igreja. Aos 14 anos já compunha as próprias letras.",
       "Em 2007 o nome Hungria Hip Hop virou projeto, e o que era som de quebrada do DF atravessou o país: faixas que somam bilhões de execuções e uma legião que canta cada verso de cor.",
-      "O som é uma mistura própria — rap, trap e melodia romântica — que virou trilha de rolê, de estrada e de história de amor Brasil afora.", // TODO revisar com a equipe
+      "O som é uma mistura própria — rap, trap e melodia romântica — que virou trilha de rolê, de estrada e de história de amor mundo afora.", // TODO revisar com a equipe
     ],
   },
 
@@ -194,7 +194,7 @@ window.SITE_DATA = {
         texto: "Do teclado da igreja em Brasília aos primeiros raps que a quebrada do DF aprendeu de cor.",
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02295449e2983bad402b102363" },  // capa mais antiga (Antigas / Hip Hop Tuning, 2009)
       { num: "02", titulo: "A Ascensão", script: "O nome que o país cantou.",
-        texto: "Dubai, Beijo com Trap, bilhões de plays — o som de Brasília virou trilha do Brasil inteiro.",
+        texto: "Dubai, Beijo com Trap, bilhões de plays — o som de Brasília virou trilha do mundo inteiro.",
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02055bbb715f18dc40b39908d6" },  // Zorro do Asfalto
       { num: "03", titulo: "O Legado", script: "Trilha de uma geração.",
         texto: "Arenas lotadas e uma legião que sabe cada verso. A história continua sendo escrita.",
