@@ -170,10 +170,11 @@
 
 <script>
 // GALERIA (mobile): as fotos passam sozinhas pro lado conforme a página rola
-// (scroll-jack, dirigido pela posição vertical). A Trajetória fica no swipe manual.
+// (scroll-jack, dirigido pela posição vertical). A Trajetória fica no swipe MANUAL
+// (não entra aqui, senão o rAF sobrescreve o scrollLeft e trava o arrasto).
 (function(){
   function init(){
-    var carousels = [ document.querySelector("#jornada .jrn__grid"), document.getElementById("galeria") ].filter(Boolean);
+    var carousels = [ document.getElementById("galeria") ].filter(Boolean);
     if (!carousels.length) return;
     (function loop(){
       var vh = innerHeight;
