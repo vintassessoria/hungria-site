@@ -48,24 +48,16 @@
   const WD  = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
   const TAG = { ingressos: "Ingressos", esgotado: "Esgotado", emBreve: "Em breve" };
 
-  const futuros = (D.shows || [])
-    .filter((s) => new Date(s.data + "T23:59:59") >= new Date())
-    .sort((a, b) => a.data.localeCompare(b.data));
+  // Mostra TODAS as datas da lista (o dono atualiza a agenda periodicamente).
+  const datas = (D.shows || []).slice().sort((a, b) => a.data.localeCompare(b.data));
 
   const lista = $("#agenda-list");
   if (lista) {
-    lista.innerHTML = futuros.length ? futuros.map((s) => {
+    lista.innerHTML = datas.length ? datas.map((s) => {
       const d = new Date(s.data + "T12:00:00");
-      const tag = TAG[s.status] || TAG.emBreve;
-      const on = s.status === "ingressos" && s.link && s.link !== "#";
       return `<div class="dates__row">
         <span class="dates__d">${String(d.getDate()).padStart(2, "0")} ${MES[d.getMonth()]}<small>${WD[d.getDay()]} · ${d.getFullYear()}</small></span>
-        <div>
-          <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>
-          <div class="dates__venue">${esc(s.local)}</div>
-        </div>
-        ${on ? `<a class="dates__tag" href="${esc(s.link)}" target="_blank" rel="noopener">${tag}</a>`
-             : `<span class="dates__tag">${tag}</span>`}
+        <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>
       </div>`;
     }).join("") : `<p class="dates__empty">Nenhuma data confirmada no momento. Novas cidades em breve — acompanhe as redes.</p>`;
   }

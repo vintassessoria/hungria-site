@@ -475,13 +475,12 @@
   // --- turnê ---
   const MES = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
   const TAG = { ingressos: "Ingressos", esgotado: "Esgotado", emBreve: "Em breve" };
-  const futuros = (D.shows || []).filter((s) => new Date(s.data + "T23:59:59") >= new Date()).sort((a, b) => a.data.localeCompare(b.data));
-  $("#shows-list").innerHTML = futuros.length ? futuros.map((s, i) => {
-    const d = new Date(s.data + "T12:00:00"), tag = TAG[s.status] || TAG.emBreve, on = s.status === "ingressos" && s.link && s.link !== "#";
+  const datas = (D.shows || []).slice().sort((a, b) => a.data.localeCompare(b.data));
+  $("#shows-list").innerHTML = datas.length ? datas.map((s, i) => {
+    const d = new Date(s.data + "T12:00:00");
     return `<div class="dates__row reveal" style="--d:${i * 60}ms">
       <span class="dates__d">${String(d.getDate()).padStart(2, "0")} ${MES[d.getMonth()]}</span>
-      <div><div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div><div class="dates__venue">${esc(s.local)}</div></div>
-      ${on ? `<a class="dates__tag" href="${esc(s.link)}" target="_blank" rel="noopener" data-cur>${tag}</a>` : `<span class="dates__tag">${tag}</span>`}
+      <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>
     </div>`; }).join("") : `<p class="dates__empty reveal">Nenhuma data confirmada no momento. Novas cidades em breve.</p>`;
 
   // --- sobre (biografia + logo com efeito heatmap) ---

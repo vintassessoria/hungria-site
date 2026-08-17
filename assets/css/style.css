@@ -538,7 +538,7 @@ html.no-cursor .cur{ display:none; }
    TURNÊ — lista editorial, divisórias finas, vermelho pontual
    ===================================================================== */
 .dates{ border-top:1px solid var(--gray-line); }
-.dates__row{ position:relative; display:grid; grid-template-columns:150px 1fr auto; align-items:center; gap:24px;
+.dates__row{ position:relative; display:grid; grid-template-columns:150px 1fr; align-items:center; gap:24px;
   padding:26px 18px; border-bottom:1px solid var(--gray-line);
   transition:background-color .5s var(--e-out), padding-left .5s var(--e-out), box-shadow .5s var(--e-out); }
 .dates__row::before{ content:""; position:absolute; left:0; top:18%; bottom:18%; width:2px; background:var(--red); transform:scaleY(0); transform-origin:center; transition:transform .5s var(--e-out); }
@@ -1092,9 +1092,8 @@ html.lenis, html.lenis body{ height:auto; }
   .hero{ padding-bottom:64px; }
   .form__row{ grid-template-columns:1fr; }
   .news{ flex-direction:column; } .news .btn{ width:100%; }
-  .dates__row{ grid-template-columns:64px 1fr; row-gap:4px; column-gap:16px; padding:20px 12px; }
-  .dates__d{ grid-row:span 2; font-size:19px; align-self:start; }
-  .dates__tag{ grid-column:2; justify-self:start; margin-top:4px; }
+  .dates__row{ grid-template-columns:64px 1fr; column-gap:16px; padding:20px 12px; }
+  .dates__d{ font-size:19px; align-self:center; }
   .ft__grid{ grid-template-columns:1fr; gap:26px; }
 }
 /* leque compacto e recortado no mobile (sem hover em toque, pode clipar) */

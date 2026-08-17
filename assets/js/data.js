@@ -152,10 +152,16 @@ window.SITE_DATA = {
      status: "ingressos" | "esgotado" | "emBreve"
      --------------------------------------------------------------- */
   shows: [
-    { data: "2026-09-12", cidade: "Brasília",       uf: "DF", local: "Arena BRB Mané Garrincha", status: "ingressos", link: "#" }, // TODO
-    { data: "2026-09-27", cidade: "São Paulo",      uf: "SP", local: "Espaço Unimed",            status: "esgotado",  link: "#" }, // TODO
-    { data: "2026-10-10", cidade: "Rio de Janeiro", uf: "RJ", local: "Qualistage",               status: "ingressos", link: "#" }, // TODO
-    { data: "2026-10-25", cidade: "Goiânia",        uf: "GO", local: "Arena Goiânia",            status: "emBreve",   link: "#" }, // TODO
+    { data: "2026-08-01", cidade: "Pará de Minas",        uf: "Minas Gerais" },
+    { data: "2026-08-06", cidade: "São Lourenço da Mata", uf: "Pernambuco" },
+    { data: "2026-08-07", cidade: "Nova Friburgo",        uf: "Rio de Janeiro" },
+    { data: "2026-08-08", cidade: "Rio de Janeiro",       uf: "Rio de Janeiro" },
+    { data: "2026-08-14", cidade: "Araçatuba",            uf: "São Paulo" },
+    { data: "2026-08-15", cidade: "Rio Verde",            uf: "Goiás" },
+    { data: "2026-08-22", cidade: "Bananeiras",           uf: "Paraíba" },
+    { data: "2026-08-23", cidade: "Buíque",               uf: "Pernambuco" },
+    { data: "2026-08-28", cidade: "Jales",                uf: "São Paulo" },
+    { data: "2026-08-29", cidade: "São Paulo",            uf: "São Paulo" },
   ],
 
   /* ---------------------------------------------------------------
