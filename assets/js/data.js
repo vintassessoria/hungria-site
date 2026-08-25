@@ -101,15 +101,17 @@ window.SITE_DATA = {
      --------------------------------------------------------------- */
   lancamento: {
     selo: "Novo lançamento",
-    titulo: "O Playboy Rodou",
-    tipo: "Single",
-    ano: "2025",                                  // TODO
-    capa: "assets/img/capas/lancamento.svg",      // TODO trocar pela arte real
+    titulo: "Assunto",
+    artista: "Paulo Pires",
+    part: "Hungria",                              // Hungria é participação (feat)
+    tipo: "Clipe oficial",
+    ano: "2026",
+    capa: "assets/img/capas/assunto.jpg",
     descricao:
-      "O novo trabalho do Hungria chega com a assinatura que consagrou o som de Brasília: batida pesada, melodia de rádio e letra que gruda desde a primeira vez.",
-    tipoEmbed: "album",
-    spotifyId: "4Dikk6I3cwNpc91OXARpQu",
-    smartlink: "", // TODO link do Onerpm/Distrokid que abre em todas plataformas
+      "O novo clipe já está no ar: Hungria entra na faixa de Paulo Pires. Assista agora.",
+    tipoEmbed: "youtube",
+    youtubeId: "AxYn7QFKdOM",
+    smartlink: "https://www.youtube.com/watch?v=AxYn7QFKdOM",
   },
 
   /* ---------------------------------------------------------------

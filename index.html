@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260817f">
+<link rel="stylesheet" href="assets/css/style.css?v=20260817h">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 
@@ -314,6 +314,33 @@
 </section>
 
 
+<!-- ============ LANÇAMENTO EM DESTAQUE (clipe) ============ -->
+<section class="sec drop" id="lancamento" aria-label="Novo lançamento">
+  <div class="wrap drop__wrap">
+    <div class="drop__media reveal">
+      <button class="drop__play ytfacade" type="button" data-yt="AxYn7QFKdOM" aria-label="Assistir ao clipe de Assunto no YouTube">
+        <picture>
+          <source type="image/webp" srcset="assets/img/capas/assunto.webp">
+          <img src="assets/img/capas/assunto.jpg" alt="Paulo Pires e Hungria no clipe de Assunto" loading="lazy" decoding="async">
+        </picture>
+        <span class="drop__playico" aria-hidden="true"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="41"/><path d="M34 27l26 15-26 15z" fill="#fff"/></svg></span>
+      </button>
+    </div>
+    <div class="drop__info reveal">
+      <span class="tag drop__selo">● Novo lançamento</span>
+      <h2 class="drop__title">Assunto</h2>
+      <p class="drop__credit">Paulo Pires <span>· part. Hungria</span></p>
+      <p class="drop__desc">O novo clipe já está no ar — Hungria entra na faixa de Paulo Pires. Assista agora.</p>
+      <div class="drop__ctas">
+        <a class="mbtn" href="https://www.youtube.com/watch?v=AxYn7QFKdOM" target="_blank" rel="noopener" data-cur>
+          <span class="mbtn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.6-.46-5.32a2.76 2.76 0 0 0-1.94-1.95C18.88 4.27 12 4.27 12 4.27s-6.88 0-8.6.46A2.76 2.76 0 0 0 1.46 6.68C1 8.4 1 12 1 12s0 3.6.46 5.32c.25.94.99 1.68 1.94 1.94 1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.76 2.76 0 0 0 1.94-1.94C23 15.6 23 12 23 12ZM9.75 15.5v-7l6 3.5-6 3.5Z"/></svg></span>
+          <span>Assistir no YouTube</span><span class="mbtn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ MÚSICA ============ -->
 <section class="sec" id="musica">
   <div class="wrap">
@@ -548,7 +575,28 @@
 
 <!-- scroll suave com inércia (estilo Sand) — degrada sem ele -->
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="assets/js/data.js?v=20260817f"></script>
-<script src="assets/js/main.js?v=20260817f"></script>
+<script src="assets/js/data.js?v=20260817h"></script>
+<script src="assets/js/main.js?v=20260817h"></script>
+<!-- Lançamento: clicar na capa troca pela reprodução do clipe (YouTube) -->
+<script>
+(function(){
+  function init(){
+    document.querySelectorAll(".ytfacade").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var id = btn.getAttribute("data-yt"); if(!id) return;
+        var ifr = document.createElement("iframe");
+        ifr.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+        ifr.title = "Clipe — Assunto (Paulo Pires part. Hungria)";
+        ifr.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+        ifr.setAttribute("allowfullscreen", "");
+        ifr.className = "drop__frame";
+        btn.replaceWith(ifr);
+      });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
 </body>
 </html>
