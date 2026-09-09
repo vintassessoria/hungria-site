@@ -203,10 +203,10 @@ window.SITE_DATA = {
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02295449e2983bad402b102363" },  // capa mais antiga (Antigas / Hip Hop Tuning, 2009)
       { num: "02", titulo: "A Ascensão", script: "O nome que o país cantou.",
         texto: "Um Pedido, Lembranças, bilhões de plays — o som de Brasília virou trilha do mundo inteiro.",
-        foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02055bbb715f18dc40b39908d6" },  // Zorro do Asfalto
+        foto: "https://i.scdn.co/image/ab67616d0000b2734d7f4371bae76e432c022ed7" },  // capa: Lembranças
       { num: "03", titulo: "O Legado", script: "Trilha de uma geração.",
         texto: "Amor e Fé, Temporal, Preta — arenas lotadas e uma legião que sabe cada verso. A história continua sendo escrita.",
-        foto: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02afcc8db00abdf22cf6a82545" },  // mais recente (Virou Verão, 2025)
+        foto: "https://i.scdn.co/image/ab67616d0000b27357c4eac77883a5d57dae079d" },  // capa: Amor e Fé
     ],
   },
 
