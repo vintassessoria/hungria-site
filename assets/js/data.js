@@ -163,6 +163,7 @@ window.SITE_DATA = {
     { data: "2026-09-24", cidade: "Igarassu",      uf: "Pernambuco" },
     { data: "2026-09-25", cidade: "Barbacena",     uf: "Minas Gerais" },
     { data: "2026-09-26", cidade: "Volta Redonda", uf: "Rio de Janeiro" },
+    { data: "2026-09-27", cidade: "Santo André",   uf: "São Paulo" },
   ],
 
   /* ---------------------------------------------------------------
