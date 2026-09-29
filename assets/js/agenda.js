@@ -63,13 +63,17 @@
 
     // dispara o reveal "painel de embarque" quando cada linha entra na tela
     const linhas = $$(".dates__row.reveal", lista);
+    const revelarTudo = () => linhas.forEach((el) => el.classList.add("on"));
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver((es) => es.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
       }), { threshold: 0.14, rootMargin: "0px 0px -5% 0px" });
       linhas.forEach((el) => io.observe(el));
+      // rede de segurança: alguns navegadores in-app (apps) não disparam o
+      // observer direito e deixavam as datas de baixo presas invisíveis.
+      setTimeout(revelarTudo, 1400);
     } else {
-      linhas.forEach((el) => el.classList.add("on"));
+      revelarTudo();
     }
   }
 })();
