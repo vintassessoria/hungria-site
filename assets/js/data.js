@@ -154,16 +154,16 @@ window.SITE_DATA = {
      status: "ingressos" | "esgotado" | "emBreve"
      --------------------------------------------------------------- */
   shows: [
-    { data: "2026-09-04", cidade: "Rio Branco",    uf: "Acre" },
-    { data: "2026-09-05", cidade: "Porto Velho",   uf: "Rondônia" },
-    { data: "2026-09-06", cidade: "São Luís",      uf: "Maranhão" },
-    { data: "2026-09-12", cidade: "Toledo",        uf: "Paraná" },
-    { data: "2026-09-18", cidade: "Irati",         uf: "Paraná" },
-    { data: "2026-09-19", cidade: "Curitiba",      uf: "Paraná" },
-    { data: "2026-09-24", cidade: "Igarassu",      uf: "Pernambuco" },
-    { data: "2026-09-25", cidade: "Barbacena",     uf: "Minas Gerais" },
-    { data: "2026-09-26", cidade: "Volta Redonda", uf: "Rio de Janeiro" },
-    { data: "2026-09-27", cidade: "Santo André",   uf: "São Paulo" },
+    { data: "2026-10-10", cidade: "São José do Rio Preto", uf: "São Paulo" },
+    { data: "2026-10-11", cidade: "Lambari",               uf: "Minas Gerais" },
+    { data: "2026-10-16", cidade: "Jaú",                    uf: "São Paulo" },
+    { data: "2026-10-17", cidade: "Jundiaí",               uf: "São Paulo" },
+    { data: "2026-10-17", cidade: "Atibaia",               uf: "São Paulo" },
+    { data: "2026-10-18", cidade: "Ourinhos",              uf: "São Paulo" },
+    { data: "2026-10-24", cidade: "Belo Horizonte",        uf: "Minas Gerais" },
+    { data: "2026-10-30", cidade: "Caxias do Sul",         uf: "Rio Grande do Sul" },
+    { data: "2026-10-31", cidade: "Porto Alegre",          uf: "Rio Grande do Sul" },
+    { data: "2026-11-01", cidade: "Santa Maria",           uf: "Rio Grande do Sul" },
   ],
 
   /* ---------------------------------------------------------------
