@@ -101,17 +101,16 @@ window.SITE_DATA = {
      --------------------------------------------------------------- */
   lancamento: {
     selo: "Novo lançamento",
-    titulo: "Assunto",
-    artista: "Paulo Pires",
-    part: "Hungria",                              // Hungria é participação (feat)
+    titulo: "Disco Voador",
+    artista: "Hungria",
     tipo: "Clipe oficial",
     ano: "2026",
-    capa: "assets/img/capas/assunto.jpg",
+    capa: "assets/img/capas/disco-voador.jpg",
     descricao:
-      "O novo clipe já está no ar: Hungria entra na faixa de Paulo Pires. Assista agora.",
+      "O novo clipe do Hungria já está no ar. Assista agora.",
     tipoEmbed: "youtube",
-    youtubeId: "AxYn7QFKdOM",
-    smartlink: "https://www.youtube.com/watch?v=AxYn7QFKdOM",
+    youtubeId: "77M6UwFIEeY",
+    smartlink: "https://www.youtube.com/watch?v=77M6UwFIEeY",
   },
 
   /* ---------------------------------------------------------------
