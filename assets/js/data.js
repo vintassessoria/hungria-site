@@ -153,16 +153,15 @@ window.SITE_DATA = {
      status: "ingressos" | "esgotado" | "emBreve"
      --------------------------------------------------------------- */
   shows: [
-    { data: "2026-10-10", cidade: "São José do Rio Preto", uf: "São Paulo" },
-    { data: "2026-10-11", cidade: "Lambari",               uf: "Minas Gerais" },
-    { data: "2026-10-16", cidade: "Jaú",                    uf: "São Paulo" },
-    { data: "2026-10-17", cidade: "Jundiaí",               uf: "São Paulo" },
-    { data: "2026-10-17", cidade: "Atibaia",               uf: "São Paulo" },
-    { data: "2026-10-18", cidade: "Ourinhos",              uf: "São Paulo" },
-    { data: "2026-10-24", cidade: "Belo Horizonte",        uf: "Minas Gerais" },
-    { data: "2026-10-30", cidade: "Caxias do Sul",         uf: "Rio Grande do Sul" },
-    { data: "2026-10-31", cidade: "Porto Alegre",          uf: "Rio Grande do Sul" },
     { data: "2026-11-01", cidade: "Santa Maria",           uf: "Rio Grande do Sul" },
+    { data: "2026-11-13", cidade: "Guarulhos",             uf: "São Paulo" },
+    { data: "2026-11-14", cidade: "Poços de Caldas",       uf: "Minas Gerais" },
+    { data: "2026-11-19", cidade: "São Paulo",             uf: "São Paulo" },
+    { data: "2026-11-20", cidade: "Porto Ferreira",        uf: "São Paulo" },
+    { data: "2026-11-21", cidade: "Avaré",                 uf: "São Paulo" },
+    { data: "2026-11-22", cidade: "São Bento do Sul",      uf: "Santa Catarina" },
+    { data: "2026-11-27", cidade: "Pelotas",               uf: "Rio Grande do Sul" },
+    { data: "2026-11-28", cidade: "Santana do Livramento", uf: "Rio Grande do Sul" },
   ],
 
   /* ---------------------------------------------------------------
