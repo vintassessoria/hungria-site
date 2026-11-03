@@ -55,6 +55,13 @@
   if (lista) {
     lista.innerHTML = datas.length ? datas.map((s, i) => {
       const d = new Date(s.data + "T12:00:00");
+      if (s.pausa) {   // período sem shows (ex.: férias): linha especial, sem cidade/estado
+        const f = new Date(s.ate + "T12:00:00");
+        return `<div class="dates__row dates__row--pausa reveal" style="--d:${i * 75}ms">
+        <span class="dates__d">${String(d.getDate()).padStart(2, "0")}–${String(f.getDate()).padStart(2, "0")} ${MES[f.getMonth()]}<small>Pausa na turnê</small></span>
+        <div class="dates__city">${esc(s.pausa)}</div>
+      </div>`;
+      }
       return `<div class="dates__row reveal" style="--d:${i * 75}ms">
         <span class="dates__d">${String(d.getDate()).padStart(2, "0")} ${MES[d.getMonth()]}<small>${WD[d.getDay()]} · ${d.getFullYear()}</small></span>
         <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>

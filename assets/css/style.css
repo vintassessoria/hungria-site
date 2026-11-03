@@ -574,6 +574,8 @@ html.no-cursor .cur{ display:none; }
 .dates__d{ font-family:var(--font-display); font-weight:700; text-transform:uppercase; font-size:24px; letter-spacing:0; }
 .dates__city{ font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:-.01em; font-size:clamp(20px,2.4vw,30px); line-height:1.04; }
 .dates__uf{ color:var(--red); }
+.dates__row--pausa .dates__city{ color:var(--gray); font-style:italic; letter-spacing:.02em; }
+.dates__row--pausa .dates__d, .js .dates__row--pausa.reveal.on .dates__d{ color:var(--gray); }
 .dates__venue{ font-size:13px; letter-spacing:.02em; color:var(--gray); margin-top:5px; }
 .dates__tag{ font-family:var(--font-body); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--white-70);
   border:1px solid var(--white-14); border-radius:3px; padding:10px 16px; white-space:nowrap; transition:border-color .3s, background-color .3s, color .3s; }

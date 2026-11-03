@@ -154,6 +154,7 @@ window.SITE_DATA = {
      --------------------------------------------------------------- */
   shows: [
     { data: "2026-11-01", cidade: "Santa Maria",           uf: "Rio Grande do Sul" },
+    { data: "2026-11-02", ate: "2026-11-12", pausa: "Férias" },   // período sem shows
     { data: "2026-11-13", cidade: "Guarulhos",             uf: "São Paulo" },
     { data: "2026-11-14", cidade: "Poços de Caldas",       uf: "Minas Gerais" },
     { data: "2026-11-19", cidade: "São Paulo",             uf: "São Paulo" },
