@@ -270,7 +270,7 @@
     // A foto fica como fundo e o vídeo assume por cima quando REALMENTE tocar.
     // Se o navegador bloquear o autoplay, o botão de play aparece — o gesto
     // do usuário sempre libera o vídeo, então o hero NUNCA fica sem vídeo.
-    heroImg.src = "assets/img/fotos/hero-start.jpg?v=3";   // background do hero (frame 0 do VÍDEO CERTO — casa com o vídeo)
+    heroImg.src = "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/hero-start.jpg?v=3";   // background do hero (frame 0 do VÍDEO CERTO — casa com o vídeo)
     heroImg.style.objectPosition = H.foco || "center 34%";
     heroVideo.src = H.video;
     heroVideo.style.objectPosition = H.foco || "center 34%";
@@ -740,7 +740,7 @@
     const fbm = (x, y) => { let s = 0, a = .6, f = 1; for (let o = 0; o < 3; o++) { s += vn(x*f, y*f)*a; f *= 2.1; a *= .5; } return s; };
 
     // logo (máscara pelo alpha) + tile de grão
-    const logo = new Image(); let logoReady = false; logo.onload = () => logoReady = true; logo.src = "assets/img/hungria-logomarca.png";
+    const logo = new Image(); let logoReady = false; logo.onload = () => logoReady = true; logo.src = "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/hungria-logomarca.png";
     const gt = document.createElement("canvas"); gt.width = gt.height = 140; const gtx = gt.getContext("2d");
     const gid = gtx.createImageData(140, 140);
     for (let i = 0; i < gid.data.length; i += 4) { const n = (Math.random() * 255) | 0; gid.data[i] = gid.data[i+1] = gid.data[i+2] = n; gid.data[i+3] = 255; }

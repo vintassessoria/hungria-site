@@ -72,7 +72,7 @@ window.SITE_DATA = {
       titulo: "HUNGRIA",           // nome gigante em display
       sub: "O som do DF que virou trilha do mundo inteiro.",
       release: "Novo single — O Playboy Rodou",
-      foto: "assets/img/fotos/feature-wide.jpg",
+      foto: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/feature-wide.jpg",
       video: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/hero.mp4",
       foco: "center 38%",
       ctaAgenda: "Ver agenda",       // botão único e central do hero (leva pra agenda.html)
@@ -89,7 +89,7 @@ window.SITE_DATA = {
       selo: "Ao vivo",
       titulo: "Do palco pro mundo",
       texto: "Batida pesada, melodia de rádio e o coração de Brasília — o som que virou trilha de uma geração.",
-      foto: "assets/img/fotos/hero-portrait.jpg",
+      foto: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/hero-portrait.jpg",
       cta: "Ver clipes",
       href: "#clipes",
     },
@@ -105,7 +105,7 @@ window.SITE_DATA = {
     artista: "Hungria",
     tipo: "Clipe oficial",
     ano: "2026",
-    capa: "assets/img/capas/disco-voador.jpg",
+    capa: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/capas/disco-voador.jpg",
     descricao:
       "O novo clipe do Hungria já está no ar. Assista agora.",
     tipoEmbed: "youtube",
@@ -180,7 +180,7 @@ window.SITE_DATA = {
      --------------------------------------------------------------- */
   sobre: {
     titulo: "Do DF pro mundo",
-    foto: "assets/img/fotos/foto-2.jpg",
+    foto: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-2.jpg",
     paragrafos: [
       "Gustavo da Hungria Neves, o Hungria Hip Hop, nasceu em Brasília e começou na música ainda criança, tocando teclado na igreja. Aos 14 anos já compunha as próprias letras.",
       "Em 2007 o nome Hungria Hip Hop virou projeto, e o que era som de quebrada do DF atravessou o país: faixas que somam bilhões de execuções e uma legião que canta cada verso de cor.",
@@ -213,12 +213,12 @@ window.SITE_DATA = {
      10. GALERIA — troque pelos JPGs oficiais
      --------------------------------------------------------------- */
   galeria: [
-    { src: "assets/img/fotos/foto-1.jpg", alt: "Hungria ao vivo" },
-    { src: "assets/img/fotos/hero-portrait.jpg", alt: "Hungria no microfone" },
-    { src: "assets/img/fotos/foto-3.jpg", alt: "Show ao vivo" },
-    { src: "assets/img/fotos/feature-wide.jpg", alt: "Palco com coral e velas" },
-    { src: "assets/img/fotos/foto-4.jpg", alt: "No palco" },
-    { src: "assets/img/fotos/foto-5.jpg", alt: "Apresentação" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-1.jpg", alt: "Hungria ao vivo" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/hero-portrait.jpg", alt: "Hungria no microfone" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-3.jpg", alt: "Show ao vivo" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/feature-wide.jpg", alt: "Palco com coral e velas" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-4.jpg", alt: "No palco" },
+    { src: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-5.jpg", alt: "Apresentação" },
   ],
 
   /* ---------------------------------------------------------------
@@ -227,9 +227,9 @@ window.SITE_DATA = {
   loja: {
     linkLoja: "", // TODO link da loja oficial
     produtos: [
-      { nome: "Camiseta Oficial", preco: "R$ 129,90", img: "assets/img/produtos/produto-1.svg", link: "#" }, // TODO
-      { nome: "Moletom Tour",     preco: "R$ 249,90", img: "assets/img/produtos/produto-2.svg", link: "#" }, // TODO
-      { nome: "Boné Logo",        preco: "R$  89,90", img: "assets/img/produtos/produto-3.svg", link: "#" }, // TODO
+      { nome: "Camiseta Oficial", preco: "R$ 129,90", img: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/produtos/produto-1.svg", link: "#" }, // TODO
+      { nome: "Moletom Tour",     preco: "R$ 249,90", img: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/produtos/produto-2.svg", link: "#" }, // TODO
+      { nome: "Boné Logo",        preco: "R$  89,90", img: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/produtos/produto-3.svg", link: "#" }, // TODO
     ],
   },
 
