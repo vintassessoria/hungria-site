@@ -101,16 +101,16 @@ window.SITE_DATA = {
      --------------------------------------------------------------- */
   lancamento: {
     selo: "Novo lançamento",
-    titulo: "Disco Voador",
+    titulo: "Ninguém é de Ferro",
     artista: "Hungria",
     tipo: "Clipe oficial",
     ano: "2026",
-    capa: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/capas/disco-voador.jpg",
+    capa: "assets/img/capas/ninguem-e-de-ferro.jpg",
     descricao:
       "O novo clipe do Hungria já está no ar. Assista agora.",
     tipoEmbed: "youtube",
-    youtubeId: "77M6UwFIEeY",
-    smartlink: "https://www.youtube.com/watch?v=77M6UwFIEeY",
+    youtubeId: "2aZN2DvMeHE",
+    smartlink: "https://www.youtube.com/watch?v=2aZN2DvMeHE",
   },
 
   /* ---------------------------------------------------------------
