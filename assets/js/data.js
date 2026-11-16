@@ -179,12 +179,12 @@ window.SITE_DATA = {
      9. SOBRE
      --------------------------------------------------------------- */
   sobre: {
-    titulo: "Do DF pro mundo",
+    titulo: "De Brasília para o mundo",
     foto: "https://pub-dfd14236a91140a5a1e41c79f0a83fe4.r2.dev/hungria/img/fotos/foto-2.jpg",
-    paragrafos: [
-      "Gustavo da Hungria Neves, o Hungria Hip Hop, nasceu em Brasília e começou na música ainda criança, tocando teclado na igreja. Aos 14 anos já compunha as próprias letras.",
-      "Em 2007 o nome Hungria Hip Hop virou projeto, e o que era som de quebrada do DF atravessou o país: faixas que somam bilhões de execuções e uma legião que canta cada verso de cor.",
-      "O som é uma mistura própria — rap, trap e melodia romântica — que virou trilha de rolê, de estrada e de história de amor mundo afora.", // TODO revisar com a equipe
+    paragrafos: [   // texto aprovado pela equipe (Edu) em 16/11/2026
+      "Gustavo da Hungria Neves, conhecido como Hungria Hip Hop, nasceu em Brasília e encontrou na música, ainda criança, uma forma de expressar sua identidade. Começou tocando teclado na igreja e, aos 14 anos, já escrevia as próprias letras.",
+      "Em 2007, nasceu o projeto Hungria Hip Hop. Com uma sonoridade autêntica, que mistura rap, trap e melodias marcantes, o artista construiu uma trajetória que ultrapassou fronteiras e conquistou milhões de pessoas por todo o país.",
+      "Com Brasília presente em sua essência, Hungria transformou vivências, sentimentos e histórias em músicas que atravessam gerações. Hoje, seus números impressionam, mas é a conexão com o público, traduzida em bilhões de reproduções e milhares de vozes cantando suas canções, que revela a dimensão de sua trajetória.",
     ],
   },
 
@@ -197,14 +197,14 @@ window.SITE_DATA = {
     titulo: ["Uma voz", "três tempos"],
     seloDir: ["Hungria", "2007 — hoje"],
     fases: [
-      { num: "01", titulo: "O Começo", script: "Brasília, os primeiros versos.",
-        texto: "Do teclado da igreja em Brasília aos primeiros raps que a quebrada do DF aprendeu de cor.",
+      { num: "01", titulo: "O Começo", script: "Onde tudo ganhou voz.",
+        texto: "Brasília, os primeiros palcos e as primeiras composições. Do teclado da igreja às letras escritas ainda na adolescência, Hungria começou a construir uma identidade musical que carregaria e o fortaleceria ao longo da sua trajetória.",
         foto: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02295449e2983bad402b102363" },  // capa mais antiga (Antigas / Hip Hop Tuning, 2009)
-      { num: "02", titulo: "A Ascensão", script: "O nome que o país cantou.",
-        texto: "Um Pedido, Lembranças, bilhões de plays — o som de Brasília virou trilha do mundo inteiro.",
+      { num: "02", titulo: "A Ascensão", script: "Um som que conquistou o Brasil.",
+        texto: "Com uma sonoridade própria e músicas que ganharam o país, Hungria transformou sua identidade em um fenômeno nacional. Canções como Um Pedido e Lembranças ultrapassaram fronteiras, conquistaram milhões de ouvintes e consolidaram seu nome na música brasileira.",
         foto: "https://i.scdn.co/image/ab67616d0000b2734d7f4371bae76e432c022ed7" },  // capa: Lembranças
-      { num: "03", titulo: "O Legado", script: "Trilha de uma geração.",
-        texto: "Amor e Fé, Temporal, Preta — arenas lotadas e uma legião que sabe cada verso. A história continua sendo escrita.",
+      { num: "03", titulo: "O Legado", script: "Uma história que se conecta com gerações.",
+        texto: "De Amor e Fé a Temporal e Preta, Hungria segue transformando sentimentos e histórias em músicas que fazem parte da vida de milhões de pessoas. Dos primeiros shows às grandes turnês, uma trajetória marcada por identificação, emoção e uma legião de fãs que canta cada verso. E essa história continua!",
         foto: "https://i.scdn.co/image/ab67616d0000b27357c4eac77883a5d57dae079d" },  // capa: Amor e Fé
     ],
   },
