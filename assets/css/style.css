@@ -708,8 +708,11 @@ html.lenis, html.lenis body{ height:auto; }
 /* TEXTO: camada da frente, mais largo, sobrepondo a foto */
 .mtx__text{ position:relative; z-index:2; width:min(74%, 820px);
   font-family:"Inter", var(--font-body); font-weight:600; letter-spacing:-.005em;
-  font-size:clamp(20px,2.5vw,37px); line-height:1.22; color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.55); }
+  font-size:clamp(19px,2.05vw,31px); line-height:1.26; color:#fff; text-shadow:0 2px 22px rgba(0,0,0,.55); }
 .mtx__text p{ margin:0 0 clamp(20px,2.4vw,34px); }
+.mtx__kicker{ font-family:var(--font-mono); font-weight:400; font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--red); margin:0 0 clamp(16px,2vw,26px); text-shadow:none; }
+.mtx__kicker .mtx__w{ opacity:1; }
 .mtx__text p:last-child{ margin-bottom:0; }
 .mtx__w{ opacity:.14; }                        /* base apagado; o JS acende no scroll */
 /* MARCAÇÕES à mão (traços brancos irregulares) nas frases-chave */
@@ -726,7 +729,7 @@ html.lenis, html.lenis body{ height:auto; }
   .mtx__wrap{ display:block; min-height:0; }
   .mtx__photo{ position:relative; width:100%; aspect-ratio:4/3; margin-top:clamp(22px,6vw,34px); }
   .mtx__photo::after{ background:linear-gradient(0deg, rgba(5,5,5,.4), transparent 50%); }
-  .mtx__text{ width:100%; font-size:clamp(20px,5.4vw,28px); text-shadow:none; }
+  .mtx__text{ width:100%; font-size:clamp(19px,5vw,26px); text-shadow:none; }
   .mtx__u--circle{ white-space:normal; }
 }
 #turne{ background:var(--black); }   /* opaca: evita bleed do manifesto atrás */
