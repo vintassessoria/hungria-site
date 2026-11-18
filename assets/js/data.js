@@ -157,7 +157,8 @@ window.SITE_DATA = {
     { data: "2026-11-02", ate: "2026-11-12", pausa: "Férias" },   // período sem shows
     { data: "2026-11-13", cidade: "Guarulhos",             uf: "São Paulo" },
     { data: "2026-11-14", cidade: "Poços de Caldas",       uf: "Minas Gerais" },
-    { data: "2026-11-19", cidade: "São Paulo",             uf: "São Paulo" },
+    { data: "2026-11-19", cidade: "São Paulo",             uf: "São Paulo", local: "Juventus Hall ZL" },
+    { data: "2026-11-19", cidade: "São Paulo",             uf: "São Paulo", local: "Terra SP ZS" },
     { data: "2026-11-20", cidade: "Porto Ferreira",        uf: "São Paulo" },
     { data: "2026-11-21", cidade: "Avaré",                 uf: "São Paulo" },
     { data: "2026-11-22", cidade: "São Bento do Sul",      uf: "Santa Catarina" },

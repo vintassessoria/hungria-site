@@ -64,7 +64,7 @@
       }
       return `<div class="dates__row reveal" style="--d:${i * 75}ms">
         <span class="dates__d">${String(d.getDate()).padStart(2, "0")} ${MES[d.getMonth()]}<small>${WD[d.getDay()]} · ${d.getFullYear()}</small></span>
-        <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span></div>
+        <div class="dates__city">${esc(s.cidade)} <span class="dates__uf">/ ${esc(s.uf)}</span>${s.local ? `<small class="dates__local">${esc(s.local)}</small>` : ""}</div>
       </div>`;
     }).join("") : `<p class="dates__empty">Nenhuma data confirmada no momento. Novas cidades em breve — acompanhe as redes.</p>`;
 
